@@ -1,8 +1,8 @@
 import NetworkBase from './NetworkBase';
 
 const url = window.location.href.match(/ivnix|:8080/)
-  ? 'https://maps.back.ivnix.com/api/'
-  : 'https://maps.back.ivnix.com/api/';
+  ? 'http://localhost:3000/'
+  : 'http://localhost:3000/';
 
 class Network extends NetworkBase {
   constructor() {
@@ -10,7 +10,7 @@ class Network extends NetworkBase {
   }
 
   // named methods here...
-}
+};
 
 const net = new Network();
 export default net;
