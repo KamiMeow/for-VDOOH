@@ -24,12 +24,12 @@ export default new Router({
     {
       path: '/countries',
       name: 'countries',
-      component: MapPage,
+      component: CountriesPage,
     },
     {
       path: '/statistic',
       name: 'statistic',
-      component: MapPage,
+      component: StatisticPage,
     },
     {
       path: '*',
