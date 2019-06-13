@@ -3,6 +3,7 @@ import App from './App.vue';
 import store from './store';
 import router from './router';
 import plugins from './plugins';
+import { mapGetters } from 'vuex';
 
 Vue.config.productionTip = false;
 
@@ -11,6 +12,12 @@ Vue.mixin({
   data: () => ({
     ...plugins,
   }),
+  computed: {
+    ...mapGetters({
+      routes: 'getRoutes',
+      adventures: 'getAdventures',
+    }),
+  },
 });
 
 new Vue({
