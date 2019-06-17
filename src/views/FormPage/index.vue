@@ -70,7 +70,11 @@
               item-value="id"
               item-text="name"
               label="Выберите страну"
-            />
+            >
+              <template v-slot:no-data>
+                <div class="pa-3">Данной страны не существует</div>
+              </template>
+            </v-autocomplete>
 
             <v-autocomplete
               v-model="adventure.city"
@@ -78,7 +82,11 @@
               item-value="id"
               item-text="name"
               label="Выберите город"
-            />
+            >
+              <template v-slot:no-data>
+                <div class="pa-3">Данного города не существует</div>
+              </template>
+            </v-autocomplete>
           </v-card-text>
 
           <v-card-actions class="pa-4">
@@ -151,6 +159,7 @@ export default {
     'adventure.country': async function (newVal) {
       this.cities = (await this.Net.get(`http://localhost:3000/cities?country_id=${newVal}`));
       if (this.cities.length > 0) this.adventure.city = this.cities[0].id;
+      this.cities.sort((prev, next) => prev.name > next.name ? 1 : -1);
     },
   },
 };
